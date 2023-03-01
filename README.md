@@ -1,4 +1,10 @@
 
+## Data and script for making the following plot:
+
+<p align="center">
+	<img src="Stipends.png">
+</p>
+
 ## Data Sources
 
 Consumer Price Index: https://fred.stlouisfed.org/series/CPIAUCSL
