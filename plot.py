@@ -12,30 +12,26 @@ f,ax = plt.subplots(2,figsize=(6,8))
 date = []
 cpi = []
 with open('CPIAUCSL.csv') as f:
-    csv_reader = csv.reader(f)
-    for row in csv_reader:
+    for row in csv.reader(f):
         date.append(dates.datestr2num(row[0]))
         cpi.append(float(row[1]))
 
 # local rent cpi
-rent_cpi = []
+boston_rent_cpi = []
 with open('CUURA103SEHA.csv') as f:
-    csv_reader = csv.reader(f)
-    for row in csv_reader:
-        rent_cpi.append(float(row[1]))
+    for row in csv.reader(f):
+        boston_rent_cpi.append(float(row[1]))
 
 national_rent_cpi = []
 with open('CUSR0000SEHA.csv') as f:
-    csv_reader = csv.reader(f)
-    for row in csv_reader:
+    for row in csv.reader(f):
         national_rent_cpi.append(float(row[1]))
 
 # median weekly earnings
 mwe = []
 mwe_date = []
 with open('LES1252881500Q.csv') as f:
-    csv_reader = csv.reader(f)
-    for row in csv_reader:
+    for row in csv.reader(f):
         mwe_date.append(dates.datestr2num(row[0]))
         mwe.append(float(row[1]))
 
@@ -49,10 +45,10 @@ for i in range(len(years)):
 
 # take first stipend entry and scale cpi and rents accordingly
 cpi = np.array(cpi)*stipends[0]/cpi[0]
-rent_cpi = np.array(rent_cpi)*stipends[0]/national_rent_cpi[0]
+boston_rent_cpi = np.array(boston_rent_cpi)*stipends[0]/national_rent_cpi[0]
 national_rent_cpi = np.array(national_rent_cpi)*stipends[0]/national_rent_cpi[0]
 
-ax[0].plot(date,rent_cpi,
+ax[0].plot(date,boston_rent_cpi,
            label='2011 Stipend Adjusted to \nBoston-Cambridge-Newton Rent CPI \n(relative to National Rent CPI)',
            c='tab:red',ls=':')
 
