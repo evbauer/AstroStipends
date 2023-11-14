@@ -75,8 +75,8 @@ interp_rent = interp1d(date,national_rent_cpi,fill_value='extrapolate')
 ext_start = dates.datestr2num('2022-09-01')
 ext_end = dates.datestr2num('2023-09-01')
 ext_range = np.linspace(ext_end,ext_start) # reverse order for dash linestyle
-ax[0].plot(ext_range,interp_cpi(ext_range),ls='--',c='tab:blue')
-ax[0].plot(ext_range,interp_actual(ext_range),ls='--',c='k')
+#ax[0].plot(ext_range,interp_cpi(ext_range),ls='--',c='tab:blue')
+#ax[0].plot(ext_range,interp_actual(ext_range),ls='--',c='k')
 #ax[0].plot(ext_range,interp_rent(ext_range),ls='--',c='tab:red')
 
 ax[0].set_ylabel('Stipend (\$)')
@@ -87,7 +87,7 @@ ymax = 89000
 ymin = 73000
 ax2 = ax[1].twinx()
 ax2.set_ylim(ymin,ymax)
-ax2.set_ylabel('Stipend in Real Dollars (August 2023)')
+ax2.set_ylabel('Stipend in Real Dollars (October 2023)')
 ax[1].grid(False,axis='y')
 ax[1].set_ylabel('Stipend in 2011 Dollars')
 ax[1].set_ylim(ymin*cpi[0]/cpi[-1],ymax*cpi[0]/cpi[-1])
@@ -96,7 +96,7 @@ ax2.plot(date,interp_actual(date)*cpi[-1]/cpi)
 ax2.scatter(years,interp_actual(years)*cpi[-1]/interp_cpi(years),c='k')
 
 ### add in extrapolation
-ax2.plot(ext_range,interp_actual(ext_range)*cpi[-1]/interp_cpi(ext_range),c='tab:blue',ls='--')
+#ax2.plot(ext_range,interp_actual(ext_range)*cpi[-1]/interp_cpi(ext_range),c='tab:blue',ls='--')
 
 
 # matplotlib is doing stupid things with ticks, so set them manually
