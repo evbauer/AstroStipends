@@ -83,8 +83,8 @@ ax[0].set_ylabel('Stipend (\$)')
 
 
 ax[1].set_title('Prize Fellowship Stipends Adjusted for Inflation')
-ymax = 89000
-ymin = 73000
+ymax = 88000
+ymin = 74000
 ax2 = ax[1].twinx()
 ax2.set_ylim(ymin,ymax)
 ax2.set_ylabel('Stipend in Real Dollars (October 2023)')
