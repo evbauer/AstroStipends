@@ -83,11 +83,11 @@ ax[0].set_ylabel('Stipend (\$)')
 
 
 ax[1].set_title('Prize Fellowship Stipends Adjusted for Inflation')
-ymax = 88000
+ymax = 89000
 ymin = 74000
 ax2 = ax[1].twinx()
 ax2.set_ylim(ymin,ymax)
-ax2.set_ylabel('Stipend in Real Dollars (October 2023)')
+ax2.set_ylabel('Stipend in Real Dollars (December 2023)')
 ax[1].grid(False,axis='y')
 ax[1].set_ylabel('Stipend in 2011 Dollars')
 ax[1].set_ylim(ymin*cpi[0]/cpi[-1],ymax*cpi[0]/cpi[-1])
@@ -111,11 +111,12 @@ ticks = [dates.datestr2num('2012-01-01'),
          dates.datestr2num('2020-01-01'),
          dates.datestr2num('2021-01-01'),
          dates.datestr2num('2022-01-01'),
-         dates.datestr2num('2023-01-01')]
+         dates.datestr2num('2023-01-01'),
+         dates.datestr2num('2024-01-01')]
 
 date_form = dates.DateFormatter("%Y")
 start = dates.datestr2num('2011-06-01')
-end = dates.datestr2num('2023-12-01')
+end = dates.datestr2num('2024-06-01')
 for a in [ax[0],ax[1],ax2]:
     a.set_xticks(ticks)
     a.xaxis.set_major_formatter(date_form)
