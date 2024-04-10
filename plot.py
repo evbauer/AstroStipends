@@ -83,11 +83,11 @@ ax[0].set_ylabel('Stipend (\$)')
 
 
 ax[1].set_title('Prize Fellowship Stipends Adjusted for Inflation')
-ymax = 89000
-ymin = 74000
+ymax = 90000
+ymin = 75000
 ax2 = ax[1].twinx()
 ax2.set_ylim(ymin,ymax)
-ax2.set_ylabel('Stipend in Real Dollars (January 2024)')
+ax2.set_ylabel('Stipend in Real Dollars (March 2024)')
 ax[1].grid(False,axis='y')
 ax[1].set_ylabel('Stipend in 2011 Dollars')
 ax[1].set_ylim(ymin*cpi[0]/cpi[-1],ymax*cpi[0]/cpi[-1])
@@ -122,5 +122,5 @@ for a in [ax[0],ax[1],ax2]:
     a.xaxis.set_major_formatter(date_form)
     a.set_xlim(start,end)
 
-plt.savefig('Stipends.png')
-#plt.savefig('Stipends.pdf')
+#plt.savefig('Stipends.png')
+plt.savefig('Stipends.pdf')
