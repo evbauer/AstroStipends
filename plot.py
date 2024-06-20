@@ -10,21 +10,21 @@ f,ax = plt.subplots(2,figsize=(6,8))
 
 # consumer price index
 data = pd.read_csv('CPIAUCSL.csv')
-date = dates.datestr2num(data.iloc[:,0].to_numpy())
-cpi = data.iloc[:,1].to_numpy()
+date = dates.datestr2num(data['Date'].to_numpy())
+cpi = data['CPI'].to_numpy()
 
 # local rent cpi
 boston_data = pd.read_csv('CUURA103SEHA.csv')
-boston_rent_cpi = boston_data.iloc[:,1].to_numpy()
+boston_rent_cpi = boston_data['Rent_CPI'].to_numpy()
 
 #national rent cpi
 national_data = pd.read_csv('CUSR0000SEHA.csv')
-national_rent_cpi = national_data.iloc[:,1].to_numpy()
+national_rent_cpi = national_data['Rent_CPI'].to_numpy()
 
 # median weekly earnings
 mwe_data = pd.read_csv('LES1252881500Q.csv')
-mwe_date = dates.datestr2num(mwe_data.iloc[:,0].to_numpy())
-mwe = mwe_data.iloc[:,1].to_numpy()
+mwe_date = dates.datestr2num(mwe_data['Date'].to_numpy())
+mwe = mwe_data['MWE'].to_numpy()
 
 # stipend data from advertisements on wayback machine
 years = ['2011-09-01','2012-09-01','2014-09-01','2016-09-01','2017-09-01',
