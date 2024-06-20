@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import csv
+import pandas as pd
 import numpy as np
 import matplotlib.dates as dates
 import matplotlib.pyplot as plt
@@ -9,31 +9,22 @@ from scipy.interpolate import interp1d
 f,ax = plt.subplots(2,figsize=(6,8))
 
 # consumer price index
-date = []
-cpi = []
-with open('CPIAUCSL.csv') as f:
-    for row in csv.reader(f):
-        date.append(dates.datestr2num(row[0]))
-        cpi.append(float(row[1]))
+data = pd.read_csv('CPIAUCSL.csv')
+date = dates.datestr2num(data.iloc[:,0].to_numpy())
+cpi = data.iloc[:,1].to_numpy()
 
 # local rent cpi
-boston_rent_cpi = []
-with open('CUURA103SEHA.csv') as f:
-    for row in csv.reader(f):
-        boston_rent_cpi.append(float(row[1]))
+boston_data = pd.read_csv('CUURA103SEHA.csv')
+boston_rent_cpi = boston_data.iloc[:,1].to_numpy()
 
-national_rent_cpi = []
-with open('CUSR0000SEHA.csv') as f:
-    for row in csv.reader(f):
-        national_rent_cpi.append(float(row[1]))
+#national rent cpi
+national_data = pd.read_csv('CUSR0000SEHA.csv')
+national_rent_cpi = national_data.iloc[:,1].to_numpy()
 
 # median weekly earnings
-mwe = []
-mwe_date = []
-with open('LES1252881500Q.csv') as f:
-    for row in csv.reader(f):
-        mwe_date.append(dates.datestr2num(row[0]))
-        mwe.append(float(row[1]))
+mwe_data = pd.read_csv('LES1252881500Q.csv')
+mwe_date = dates.datestr2num(mwe_data.iloc[:,0].to_numpy())
+mwe = mwe_data.iloc[:,1].to_numpy()
 
 # stipend data from advertisements on wayback machine
 years = ['2011-09-01','2012-09-01','2014-09-01','2016-09-01','2017-09-01',
