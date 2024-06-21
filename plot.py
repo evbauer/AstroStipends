@@ -89,7 +89,7 @@ ymax = 90000
 ymin = 75000
 ax2 = ax[1].twinx()
 ax2.set_ylim(ymin,ymax)
-ax2.set_ylabel('Stipend in Real Dollars (April 2024)')
+ax2.set_ylabel('Stipend in Real Dollars (May 2024)')
 ax[1].grid(False,axis='y')
 ax[1].set_ylabel('Stipend in 2011 Dollars')
 ax[1].set_ylim(ymin*cpi[0]/cpi[-1],ymax*cpi[0]/cpi[-1])
