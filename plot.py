@@ -74,8 +74,8 @@ ax[0].set_title('Astro Prize Fellowship Stipends')
 ### add in some extrapolations to the end of this academic year
 interp_cpi = interp1d(date,cpi,fill_value='extrapolate')
 interp_rent = interp1d(date,national_rent_cpi,fill_value='extrapolate')
-ext_start = dates.datestr2num('2023-09-01')
-ext_end = dates.datestr2num('2024-09-01')
+ext_start = dates.datestr2num('2024-09-01')
+ext_end = dates.datestr2num('2025-09-01')
 ext_range = np.linspace(ext_end,ext_start) # reverse order for dash linestyle
 ax[0].plot(ext_range,interp_cpi(ext_range),ls='--',c='tab:blue')
 ax[0].plot(ext_range,interp_actual(ext_range),ls='--',c='k')
@@ -89,7 +89,7 @@ ymax = 90000
 ymin = 75000
 ax2 = ax[1].twinx()
 ax2.set_ylim(ymin,ymax)
-ax2.set_ylabel('Stipend in Real Dollars (July 2024)')
+ax2.set_ylabel('Stipend in Real Dollars (September 2024)')
 ax[1].grid(False,axis='y')
 ax[1].set_ylabel('Stipend in 2011 Dollars')
 ax[1].set_ylim(ymin*cpi[0]/cpi[-1],ymax*cpi[0]/cpi[-1])
@@ -114,11 +114,12 @@ ticks = [dates.datestr2num('2012-01-01'),
          dates.datestr2num('2021-01-01'),
          dates.datestr2num('2022-01-01'),
          dates.datestr2num('2023-01-01'),
-         dates.datestr2num('2024-01-01')]
+         dates.datestr2num('2024-01-01'),
+         dates.datestr2num('2025-01-01')]
 
 date_form = dates.DateFormatter("%Y")
 start = dates.datestr2num('2011-06-01')
-end = dates.datestr2num('2025-01-01')
+end = dates.datestr2num('2026-01-01')
 for a in [ax[0],ax[1],ax2]:
     a.set_xticks(ticks)
     a.xaxis.set_major_formatter(date_form)
